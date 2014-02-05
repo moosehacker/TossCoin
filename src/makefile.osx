@@ -6,21 +6,23 @@
 # Mac OS X makefile for bitcoin
 # Originally by Laszlo Hanyecz (solar@heliacal.net)
 
-CXX=llvm-g++
-DEPSDIR=/opt/local
+ CXX=llvm-g++
+ DEPSDIR?=/opt/local
 
-INCLUDEPATHS= \
- -I"$(CURDIR)" \
- -I"$(CURDIR)"/obj \
- -I"$(DEPSDIR)/include" \
- -I"$(DEPSDIR)/include/db48"
+ INCLUDEPATHS= \
+  -I"$(CURDIR)" \
+  -I"$(CURDIR)"/obj \
+  -I"$(DEPSDIR)/include" \
+  -I"$(DEPSDIR)/include/db48" \
+  -I"/usr/local/Cellar/openssl/1.0.1c/include"
 
-LIBPATHS= \
- -L"$(DEPSDIR)/lib" \
- -L"$(DEPSDIR)/lib/db48"
+ LIBPATHS= \
+  -L"$(DEPSDIR)/lib" \
+  -L"$(DEPSDIR)/lib/db48" \
+  -L"/usr/local/Cellar/openssl/1.0.1c/lib"
 
-USE_UPNP:=1
-USE_IPV6:=1
+ USE_UPNP:=1
+ USE_IPV6:=1
 
 LIBS= -dead_strip
 
